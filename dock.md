@@ -34,6 +34,28 @@ pub enum DockItem {
     },
 }
 
+/// Used to serialize and deserialize the DockItem
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct DockItemState {
+    pub panel_name: String,
+    pub children: Vec<DockItemState>,
+    pub info: DockItemInfo,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub enum DockItemInfo {
+    #[serde(rename = "stack")]
+    Stack {
+        sizes: Vec<Pixels>,
+        /// The axis of the stack, 0 is horizontal, 1 is vertical
+        axis: usize,
+    },
+    #[serde(rename = "tabs")]
+    Tabs { active_index: usize },
+    #[serde(rename = "panel")]
+    Panel(serde_json::Value),
+}
+
 pub trait Panel: EventEmitter<PanelEvent> + FocusableView {
     /// The name of the panel used to serialize, deserialize and identify the panel.
     ///
