@@ -1,4 +1,15 @@
 
+when `ripgrep'ing` for
+- "left_dock"
+- "right_dock"
+- "bottom_dock"
+
+besides `story_workspace.rs` they can be found in
+
+- dock/mod.rs
+- dock/state.rs
+- dock/tab_panel.rs
+
 ```rust
 /// The main area of the dock.
 pub struct DockArea {
