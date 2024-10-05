@@ -17,6 +17,19 @@ besides `story_workspace.rs` they can be found in
 - set_right_dock
 
 ```rust
+/// The Dock is a fixed container that places at left, bottom, right of the Windows.
+///
+/// This is unlike Panel, it can't be move or add any other panel.
+pub struct Dock {
+    pub(super) placement: DockPlacement,
+    dock_area: WeakView<DockArea>,
+    pub(crate) panel: View<TabPanel>,
+    /// The size is means the width or height of the Dock, if the placement is left or right, the size is width, otherwise the size is height.
+    pub(super) size: Pixels,
+    pub(super) open: bool,
+    is_resizing: bool,
+}
+
 /// The main area of the dock.
 pub struct DockArea {
     id: SharedString,
