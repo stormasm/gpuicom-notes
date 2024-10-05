@@ -10,6 +10,12 @@ besides `story_workspace.rs` they can be found in
 - dock/state.rs
 - dock/tab_panel.rs
 
+#### dock/mod.rs
+
+- set_left_dock
+- set_bottom_dock
+- set_right_dock
+
 ```rust
 /// The main area of the dock.
 pub struct DockArea {
