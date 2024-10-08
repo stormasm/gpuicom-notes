@@ -1,4 +1,16 @@
 
+### Summary
+
+- *DockItem* should be called *DockCenter*
+- *DockItemState* should be called *DockCenterState*
+- *DockItem* is the center that gets initialized in `story_workspace.rs` by `init_default_layout`
+
+#### DockAreaState is at the top of the Serializable state tree
+
+- DockItemState is for the center :) thus improperly named to DockCenterState
+- DockState is for {left_dock, right_dock, and bottom_dock}
+
+
 when `ripgrep'ing` for
 - "left_dock"
 - "right_dock"
@@ -17,18 +29,6 @@ besides `story_workspace.rs` they can be found in
 - set_right_dock
 
 ```rust
-/// The Dock is a fixed container that places at left, bottom, right of the Windows.
-///
-/// This is unlike Panel, it can't be move or add any other panel.
-pub struct Dock {
-    pub(super) placement: DockPlacement,
-    dock_area: WeakView<DockArea>,
-    pub(crate) panel: View<TabPanel>,
-    /// The size is means the width or height of the Dock, if the placement is left or right, the size is width, otherwise the size is height.
-    pub(super) size: Pixels,
-    pub(super) open: bool,
-    is_resizing: bool,
-}
 
 /// The main area of the dock.
 pub struct DockArea {
@@ -64,12 +64,17 @@ pub enum DockItem {
     },
 }
 
-/// Used to serialize and deserialize the DockItem
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
-pub struct DockItemState {
-    pub panel_name: String,
-    pub children: Vec<DockItemState>,
-    pub info: DockItemInfo,
+/// The Dock is a fixed container that places at left, bottom, right of the Windows.
+///
+/// This is unlike Panel, it can't be move or add any other panel.
+pub struct Dock {
+    pub(super) placement: DockPlacement,
+    dock_area: WeakView<DockArea>,
+    pub(crate) panel: View<TabPanel>,
+    /// The size is means the width or height of the Dock, if the placement is left or right, the size is width, otherwise the size is height.
+    pub(super) size: Pixels,
+    pub(super) open: bool,
+    is_resizing: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -84,6 +89,16 @@ pub enum DockItemInfo {
     Tabs { active_index: usize },
     #[serde(rename = "panel")]
     Panel(serde_json::Value),
+}
+
+### State
+
+/// Used to serialize and deserialize the DockItem
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct DockItemState {
+    pub panel_name: String,
+    pub children: Vec<DockItemState>,
+    pub info: DockItemInfo,
 }
 
 pub trait Panel: EventEmitter<PanelEvent> + FocusableView {
@@ -128,4 +143,25 @@ pub trait Panel: EventEmitter<PanelEvent> + FocusableView {
         DockItemState::new(self.panel_name())
     }
 }
+
+pub struct TabPanel {
+    focus_handle: FocusHandle,
+    dock_area: WeakView<DockArea>,
+    /// The stock_panel can be None, if is None, that means the panels can't be split or move
+    stack_panel: Option<View<StackPanel>>,
+    pub(crate) panels: Vec<Arc<dyn PanelView>>,
+    pub(crate) active_ix: usize,
+    tab_bar_scroll_handle: ScrollHandle,
+    is_zoomed: bool,
+    /// If this is true, the Panel closeable will follow the active panel's closeable,
+    /// otherwise this TabPanel will not able to close
+    pub(crate) closeable: bool,
+    /// If this is true, the Panel zoomable will follow the active panel's zoomable,
+    /// otherwise this TabPanel will not able to zoom
+    pub(crate) zoomable: bool,
+
+    /// When drag move, will get the placement of the panel to be split
+    will_split_placement: Option<Placement>,
+}
+
 ```
