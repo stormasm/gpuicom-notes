@@ -120,7 +120,11 @@ pub struct DockItemState {
     pub children: Vec<DockItemState>,
     pub info: DockItemInfo,
 }
+```
 
+### Panel
+
+```rust
 pub trait Panel: EventEmitter<PanelEvent> + FocusableView {
     /// The name of the panel used to serialize, deserialize and identify the panel.
     ///
