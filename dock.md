@@ -125,6 +125,34 @@ pub struct DockItemState {
 ### Panel
 
 ```rust
+pub struct StackPanel {
+    pub(super) parent: Option<View<StackPanel>>,
+    pub(super) axis: Axis,
+    focus_handle: FocusHandle,
+    pub(crate) panels: SmallVec<[Arc<dyn PanelView>; 2]>,
+    panel_group: View<ResizablePanelGroup>,
+}
+
+pub struct TabPanel {
+    focus_handle: FocusHandle,
+    dock_area: WeakView<DockArea>,
+    /// The stock_panel can be None, if is None, that means the panels can't be split or move
+    stack_panel: Option<View<StackPanel>>,
+    pub(crate) panels: Vec<Arc<dyn PanelView>>,
+    pub(crate) active_ix: usize,
+    tab_bar_scroll_handle: ScrollHandle,
+    is_zoomed: bool,
+    /// If this is true, the Panel closeable will follow the active panel's closeable,
+    /// otherwise this TabPanel will not able to close
+    pub(crate) closeable: bool,
+    /// If this is true, the Panel zoomable will follow the active panel's zoomable,
+    /// otherwise this TabPanel will not able to zoom
+    pub(crate) zoomable: bool,
+
+    /// When drag move, will get the placement of the panel to be split
+    will_split_placement: Option<Placement>,
+}
+
 pub trait Panel: EventEmitter<PanelEvent> + FocusableView {
     /// The name of the panel used to serialize, deserialize and identify the panel.
     ///
@@ -167,25 +195,4 @@ pub trait Panel: EventEmitter<PanelEvent> + FocusableView {
         DockItemState::new(self.panel_name())
     }
 }
-
-pub struct TabPanel {
-    focus_handle: FocusHandle,
-    dock_area: WeakView<DockArea>,
-    /// The stock_panel can be None, if is None, that means the panels can't be split or move
-    stack_panel: Option<View<StackPanel>>,
-    pub(crate) panels: Vec<Arc<dyn PanelView>>,
-    pub(crate) active_ix: usize,
-    tab_bar_scroll_handle: ScrollHandle,
-    is_zoomed: bool,
-    /// If this is true, the Panel closeable will follow the active panel's closeable,
-    /// otherwise this TabPanel will not able to close
-    pub(crate) closeable: bool,
-    /// If this is true, the Panel zoomable will follow the active panel's zoomable,
-    /// otherwise this TabPanel will not able to zoom
-    pub(crate) zoomable: bool,
-
-    /// When drag move, will get the placement of the panel to be split
-    will_split_placement: Option<Placement>,
-}
-
 ```
