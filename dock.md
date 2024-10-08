@@ -90,9 +90,11 @@ pub enum DockItemInfo {
     #[serde(rename = "panel")]
     Panel(serde_json::Value),
 }
+```
 
 ### State
 
+```rust
 /// Used to serialize and deserialize the DockItem
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct DockItemState {
