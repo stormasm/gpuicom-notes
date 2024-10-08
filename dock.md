@@ -95,6 +95,24 @@ pub enum DockItemInfo {
 ### State
 
 ```rust
+/// Used to serialize and deserialize the DockArea
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct DockAreaState {
+    pub center: DockItemState,
+    pub left_dock: Option<DockState>,
+    pub right_dock: Option<DockState>,
+    pub bottom_dock: Option<DockState>,
+}
+
+/// Used to serialize and deserialize the Dock
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct DockState {
+    panel: DockItemState,
+    placement: DockPlacement,
+    size: Pixels,
+    open: bool,
+}
+
 /// Used to serialize and deserialize the DockItem
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct DockItemState {
