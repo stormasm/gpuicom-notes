@@ -10,10 +10,10 @@
 - DockItemState is for the center :) thus improperly named to DockCenterState
 - DockState is for {left_dock, right_dock, and bottom_dock}
 
+### View Hierarchy
+
 *reset_default_layout* is ONLY called once the first time the developer
 fires up the application or when the software version gets updated
-
-### View Hierarchy
 
 ```rust
 hola 120 StoryWorkspace::new
