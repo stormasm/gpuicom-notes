@@ -16,25 +16,29 @@
 fires up the application or when the software version gets updated
 
 ```rust
+
 hola 120 StoryWorkspace::new
 hola 125 DockArea::new
 hola 126 StackPanel::new
-load layout error: No such file or directory (os error 2)
-hola 130 Panel
+
 hola 140 StoryContainer FocusHandle(FocusId(3v1))
 hola 141 TabPanel::new
-hola 126 StackPanel::new
-hola 130 Panel
-hola 140 StoryContainer FocusHandle(FocusId(7v1))
-hola 130 Panel
+
+hola 140 StoryContainer FocusHandle(FocusId(6v1))
+hola 141 TabPanel::new
+
 hola 140 StoryContainer FocusHandle(FocusId(9v1))
-hola 130 Panel
-hola 140 StoryContainer FocusHandle(FocusId(11v1))
-hola 130 Panel
-hola 140 StoryContainer FocusHandle(FocusId(13v1))
+hola 141 TabPanel::new
+
+hola 140 StoryContainer FocusHandle(FocusId(12v1))
 hola 141 TabPanel::new
 hola 141 TabPanel::new
+
+hola 140 StoryContainer FocusHandle(FocusId(16v1))
 hola 141 TabPanel::new
+
+hola 126 StackPanel::new
+
 Save layout...
 Save layout...
 ```
