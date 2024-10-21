@@ -1,26 +1,15 @@
 
 ### Summary
 
-- *DockItem* should be called *DockCenter*
-- *DockItemState* should be called *DockCenterState*
 - *DockItem* is the center that gets initialized in `story_workspace.rs` by `init_default_layout`
+
+The difference between *DockItem* and *Dock* is that *Dock* only has a *TabPanel*
+whereas *DockItem* can have both namely *Split* and *Tabs*.
 
 #### DockAreaState is at the top of the Serializable state tree
 
-- DockItemState is for the center :) thus improperly named to DockCenterState
+- DockItemState is for the center.
 - DockState is for {left_dock, right_dock, and bottom_dock}
-
-
-when `ripgrep'ing` for
-- "left_dock"
-- "right_dock"
-- "bottom_dock"
-
-besides `story_workspace.rs` they can be found in
-
-- dock/mod.rs
-- dock/state.rs
-- dock/tab_panel.rs
 
 #### dock/mod.rs
 
