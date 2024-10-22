@@ -1,5 +1,5 @@
 
-- *TabPanel* is a vector of PanelViews
+- *TabPanel* is a Vec of PanelViews
 
 *reset_default_layout* is ONLY called once the first time the developer
 fires up the application or when the software version gets updated
