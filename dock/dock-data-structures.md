@@ -166,47 +166,4 @@ pub struct TabPanel {
     /// When drag move, will get the placement of the panel to be split
     will_split_placement: Option<Placement>,
 }
-
-pub trait Panel: EventEmitter<PanelEvent> + FocusableView {
-    /// The name of the panel used to serialize, deserialize and identify the panel.
-    ///
-    /// This is used to identify the panel when deserializing the panel.
-    /// Once you have defined a panel name, this must not be changed.
-    fn panel_name(&self) -> &'static str;
-
-    /// The title of the panel
-    fn title(&self, _cx: &WindowContext) -> AnyElement {
-        SharedString::from(t!("Dock.Unnamed")).into_any_element()
-    }
-
-    /// The theme of the panel title, default is `None`.
-    fn title_style(&self, _cx: &WindowContext) -> Option<TitleStyle> {
-        None
-    }
-
-    /// Whether the panel can be closed, default is `true`.
-    fn closeable(&self, _cx: &WindowContext) -> bool {
-        true
-    }
-
-    /// Return true if the panel is zoomable, default is `false`.
-    fn zoomable(&self, _cx: &WindowContext) -> bool {
-        true
-    }
-
-    /// Return true if the panel is collapsable, default is `false`.
-    fn collapsible(&self, _cx: &WindowContext) -> bool {
-        false
-    }
-
-    /// The addition popup menu of the panel, default is `None`.
-    fn popup_menu(&self, this: PopupMenu, _cx: &WindowContext) -> PopupMenu {
-        this
-    }
-
-    /// Dump the panel, used to serialize the panel.
-    fn dump(&self, _cx: &AppContext) -> DockItemState {
-        DockItemState::new(self.panel_name())
-    }
-}
 ```
