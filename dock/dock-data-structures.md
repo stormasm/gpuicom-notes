@@ -2,6 +2,7 @@
 ### Summary
 
 - *DockItem* is the center that gets initialized in `story_workspace.rs` by `init_default_layout`
+- *TabPanel* is a vector of PanelViews
 
 The difference between *DockItem* and *Dock* is that *Dock* only has a *TabPanel*
 whereas *DockItem* can have both namely *Split* and *Tabs*.
