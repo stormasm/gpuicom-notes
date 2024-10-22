@@ -1,11 +1,22 @@
 
-### Summary
+### DockItem & Dock
 
 - *DockItem* is the center that gets initialized in `story_workspace.rs` by `init_default_layout`
+
+A *Dock* is basically a
+
+- *TabPanel* inside a *ViewContext new_view*
+- *DockArea*
+- *DockPlacement*
+
+### TabPanel, PanelView & StoryContainer
+
 - *TabPanel* is a Vec of PanelViews
+- *PanelView* is a *StoryContainer* inside a *WindowContext new_view*
 
 The difference between *DockItem* and *Dock* is that *Dock* only has a *TabPanel*
 whereas *DockItem* can have both namely *Split* and *Tabs*.
+
 
 #### DockAreaState is at the top of the Serializable state tree
 
