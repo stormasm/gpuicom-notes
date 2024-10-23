@@ -1,6 +1,7 @@
 
 ### DockItem & Dock
 
+- *DockArea* is basically a DockItem and a set of Docks
 - *DockItem* is the center that gets initialized in `story_workspace.rs` by `init_default_layout`
 
 A *Dock* is basically a
@@ -178,3 +179,11 @@ pub struct TabPanel {
     will_split_placement: Option<Placement>,
 }
 ```
+
+### Notes
+
+Dock is only referenced in
+
+- crates/ui/src/dock
+- crates/story/src/lib.rs
+- crates/app/src/story_workspace.rs
