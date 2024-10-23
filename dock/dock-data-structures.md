@@ -184,6 +184,9 @@ pub struct TabPanel {
 
 Dock is only referenced in
 
-- crates/ui/src/dock
-- crates/story/src/lib.rs
 - crates/app/src/story_workspace.rs
+- crates/story/src/lib.rs
+- crates/ui/src/dock
+
+Key point here being that *Dock* is not called any where in the ui crate
+except *ui/src/dock* itself which is kind of cool :)
