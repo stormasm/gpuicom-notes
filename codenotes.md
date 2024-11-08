@@ -8,10 +8,6 @@
 
 is used to create a Component out of anything that implements the `RenderOnce` trait.
 
-```rust
-#[derive(IntoElement)]
-```
-
 - accordian
 - button
 - buttongroup
