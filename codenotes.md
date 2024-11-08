@@ -25,4 +25,4 @@
 
 Along with...
 
-crates/story/src/list_story -> *CompanyListItem*
+- crates/story/src/list_story -> *CompanyListItem*
