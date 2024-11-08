@@ -22,3 +22,7 @@
 - tab/tab
 - tab/tabbar
 - titlebar
+
+Along with...
+
+crates/story/src/list_story -> *CompanyListItem*
