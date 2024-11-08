@@ -36,6 +36,8 @@ Along with...
 - [gpui_macros/gpui_macros.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui_macros/src/gpui_macros.rs)
 - [gpui_macros/derive_into_element.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui_macros/src/derive_into_element.rs)
 
+---
+
 See [element.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/element.rs)
 and search for *Component* for more details...
 
