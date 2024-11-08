@@ -42,6 +42,15 @@ See [element.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui/src
 and search for *Component* for more details...
 
 ```rust
+//! # Implementing your own elements
+//!
+//! Elements are intended to be the low level, imperative API to GPUI. They are responsible for upholding,
+//! or breaking, GPUI's features as they deem necessary. As an example, most GPUI elements are expected
+//! to stay in the bounds that their parent element gives them. But with [`WindowContext::break_content_mask`],
+//! you can ignore this restriction and paint anywhere inside of the window's bounds. This is useful for overlays
+//! and popups and anything else that shows up 'on top' of other elements.
+//! With great power, comes great responsibility.
+
 //! However, most of the time, you won't need to implement your own elements. GPUI provides a number of
 //! elements that should cover most common use cases out of the box and it's recommended that you use those
 //! to construct `components`, using the [`RenderOnce`] trait and the `#[derive(IntoElement)]` macro.
