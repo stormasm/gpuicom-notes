@@ -8,6 +8,11 @@
 
 is used to create a Component out of anything that implements the `RenderOnce` trait.
 
+See [element.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui/src/element.rs)
+and search for *Component* for more details...
+
+These are the gpui-components.
+
 - accordian
 - button
 - buttongroup
