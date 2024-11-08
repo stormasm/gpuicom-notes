@@ -1,7 +1,4 @@
 
-- [gpui_macros/gpui_macros.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui_macros/src/gpui_macros.rs)
-- [gpui_macros/derive_into_element.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui_macros/src/derive_into_element.rs)
-
 ```rust
 #[derive(IntoElement)]
 ```
@@ -36,3 +33,8 @@ These are the gpui-components.
 Along with...
 
 - crates/story/src/list_story -> *CompanyListItem*
+
+### References
+
+- [gpui_macros/gpui_macros.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui_macros/src/gpui_macros.rs)
+- [gpui_macros/derive_into_element.rs](https://github.com/zed-industries/zed/blob/main/crates/gpui_macros/src/derive_into_element.rs)
