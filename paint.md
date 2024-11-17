@@ -9,4 +9,4 @@ The following components are being reviewed for implementing element, request_la
 Model Elements for Research and Study
 
 - scroll
-- switch which is my model element to better understand
+- switch
