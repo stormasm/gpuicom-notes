@@ -7,6 +7,8 @@ split_with_sizes: StackPanel:new
 split_with_sizes: StackPanel:new  
 load layout success
 
+---
+### Big Stack
 
 impl Render for DockArea
 
@@ -26,6 +28,10 @@ impl Render for StackPanel
 impl Render for TabPanel  
 impl Render for TabPanel
 
+---
+### Small Stacks
+
+---
 #### impl Render for TabPanel
 
 - render_title_bar
