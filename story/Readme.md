@@ -1,4 +1,7 @@
 
+#### Model Stories to understand
+
+- [SwitchStory](https://github.com/longbridge/gpui-component/blob/main/crates/story/src/switch_story.rs)
 
 #### Why do some stories have a FocusHandle and some do not ?
 
