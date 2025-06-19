@@ -1,12 +1,16 @@
 
-The following components are being reviewed for implementing element, request_layout, and prepaint.
+##### The following components are being reviewed for implementing element, request_layout, paint and prepaint.
 
+- chart, plot
+- clipboard
 - dock
 - input
-- resizable
+- menu
 - popover
-
-Model Elements for Research and Study
-
-- scroll
+- resizable, scroll
+- svg_img
 - switch
+- text
+- title_bar
+- virtual_list
+- webview
