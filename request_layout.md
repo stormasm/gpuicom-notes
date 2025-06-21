@@ -84,7 +84,7 @@ fn request_layout(
     }
 ```
 
-##### panel.rs
+##### resizable/panel.rs
 
 ```rust
 fn request_layout(

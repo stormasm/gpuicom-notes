@@ -39,7 +39,7 @@ fn prepaint(
 }
 ```
 
-##### panel.rs
+##### resizable/panel.rs
 
 ```rust
 fn prepaint(
