@@ -1,6 +1,10 @@
 
 ##### The following components are being reviewed for implementing element, request_layout, paint and prepaint.
 
+```rust
+impl Element
+```
+
 - chart, plot
 - clipboard
 - dock
