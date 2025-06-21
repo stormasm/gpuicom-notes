@@ -61,7 +61,7 @@ fn prepaint(
 
 Too big for the code to be located here !
 
-- [scrollbar.rs](https://github.com/longbridge/gpui-component/blob/main/crates/ui/src/scrollbar.rs)
+- [scrollbar.rs](https://github.com/longbridge/gpui-component/blob/main/crates/ui/src/scroll/scrollbar.rs)
 
 ---
 
