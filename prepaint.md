@@ -55,11 +55,15 @@ fn prepaint(
 }
 ```
 
+---
+
 ##### scrollbar.rs
 
 Too big for the code to be located here !
 
 - [scrollbar.rs](https://github.com/longbridge/gpui-component/blob/main/crates/ui/src/scrollbar.rs)
+
+---
 
 ##### svg_img.rs
 
